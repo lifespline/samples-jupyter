@@ -1,0 +1,11 @@
+sphinx
+
+# sphinx theme
+furo
+
+# task runner
+invoke
+
+# jupyter
+ipykernel
+pandas
