@@ -8,3 +8,5 @@ Literature
 
 * `Pandas API Reference <https://pandas.pydata.org/docs/reference/index.html>`_
 * `Numpy API Reference <https://numpy.org/doc/stable/reference/>`_
+* `Matplotlib API Reference <https://matplotlib.org/stable/api/index.html>`_
+* `VSCode Jupyter <https://code.visualstudio.com/docs/datascience/jupyter-notebooks>`_
