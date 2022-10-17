@@ -9,3 +9,6 @@ invoke
 # jupyter
 ipykernel
 pandas
+
+# data viz
+matplotlib
