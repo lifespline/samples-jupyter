@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Contributing" href="contributing.html" /><link rel="prev" title="Samples" href="samples.html" />
 
     <meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
-        <title>Quickstart - Lifespline Samples: Docker 1.0.0-beta documentation</title>
+        <title>Quickstart - Lifespline Samples: Jupyter Notebooks 1.0.0-beta documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">Lifespline Samples: Docker 1.0.0-beta documentation</div></a>
+      <a href="../index.html"><div class="brand">Lifespline Samples: Jupyter Notebooks 1.0.0-beta documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">Lifespline Samples: Docker 1.0.0-beta documentation</span>
+  <span class="sidebar-brand-text">Lifespline Samples: Jupyter Notebooks 1.0.0-beta documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -215,6 +215,39 @@
 <section id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
 <p>The data is specified in <a class="reference download internal" download="" href="../_downloads/fa71d34e7bf834d008d21a5513a6b885/gen_mock_data.py"><code class="xref download docutils literal notranslate"><span class="pre">mock</span> <span class="pre">data</span></code></a>.</p>
+<span class="target" id="module-gen_mock_data"></span><section id="institution-traded-as">
+<span id="traded-as"></span><h3>Institution Traded As<a class="headerlink" href="#institution-traded-as" title="Permalink to this heading">#</a></h3>
+<p>Fetch this open data all banks trading initials.</p>
+</section>
+<section id="country-initials">
+<span id="id1"></span><h3>Country Initials<a class="headerlink" href="#country-initials" title="Permalink to this heading">#</a></h3>
+<p>Fetch this open data all countries initials.</p>
+</section>
+<section id="city-initials">
+<span id="id2"></span><h3>City Initials<a class="headerlink" href="#city-initials" title="Permalink to this heading">#</a></h3>
+<p>Fetch this open data all cities initials.</p>
+</section>
+<section id="conversion-rates">
+<span id="id3"></span><h3>Conversion Rates<a class="headerlink" href="#conversion-rates" title="Permalink to this heading">#</a></h3>
+<p>Fetch this open data with conversion rates between EUR, DKK and USD. This data is used in the <a class="reference internal" href="#transaction-amount"><span class="std std-ref">transaction amount</span></a> dataset.</p>
+</section>
+<section id="transaction-amount">
+<span id="id4"></span><h3>Transaction Amount<a class="headerlink" href="#transaction-amount" title="Permalink to this heading">#</a></h3>
+<p>The dataset represents the amount for each transaction and what the transaction was about. Dataset fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>: Country of the transaction. Finite list of country initials. See: <a class="reference internal" href="#country-initials"><span class="std std-ref">country initials</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">city</span></code>: City of the transaction. Finite list of cities initials. See: <a class="reference internal" href="#city-initials"><span class="std std-ref">city initials</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code>: Year of the transaction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month</span></code>: Month of the transaction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">day</span></code>: Day of the transaction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code>: Time of the transaction, hours:minutes:seconds</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dkk</span></code>: Amount of the transaction in DKK. If the transaction was in another currency, it is converted to DKK according with the conversion value in place  according to the date of the transaction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eur</span></code>: Amount of the transaction in EUR. If the transaction was in another currency, it is converted to EUR according with the conversion value in place  according to the date of the transaction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usd</span></code>: Amount of the transaction in USD. If the transaction was in another currency, it is converted to USD according with the conversion value in place  according to the date of the transaction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">traded</span></code>: Institution holding the transaction. Finite list of banks initials. See: <a class="reference internal" href="#traded-as"><span class="std std-ref">Institution Traded As</span></a>.</p></li>
+</ul>
+<p>The calculation of <code class="docutils literal notranslate"><span class="pre">dkk</span></code>, <code class="docutils literal notranslate"><span class="pre">eur</span></code> and <code class="docutils literal notranslate"><span class="pre">usd</span></code> is attained through the <a class="reference internal" href="#conversion-rates"><span class="std std-ref">conversion rates</span></a> dataset. The data arrives in parquet files depending on the <code class="docutils literal notranslate"><span class="pre">institution</span></code>, meaning all files must be concatenated in a single file, persisting the information of the <code class="docutils literal notranslate"><span class="pre">institution</span></code> holding the transaction on the dedicated field.</p>
+</section>
 </section>
 </section>
 
@@ -277,7 +310,14 @@
             <ul>
 <li><a class="reference internal" href="#">Quickstart</a><ul>
 <li><a class="reference internal" href="#about">About</a></li>
-<li><a class="reference internal" href="#data">Data</a></li>
+<li><a class="reference internal" href="#data">Data</a><ul>
+<li><a class="reference internal" href="#institution-traded-as">Institution Traded As</a></li>
+<li><a class="reference internal" href="#country-initials">Country Initials</a></li>
+<li><a class="reference internal" href="#city-initials">City Initials</a></li>
+<li><a class="reference internal" href="#conversion-rates">Conversion Rates</a></li>
+<li><a class="reference internal" href="#transaction-amount">Transaction Amount</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

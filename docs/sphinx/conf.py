@@ -6,11 +6,12 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../..')) # task runner docs
+sys.path.insert(0, os.path.abspath('../../samples/visualizeBudgetBuckets/static')) # samples static data
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Lifespline Samples: Docker'
+project = 'Lifespline Samples: Jupyter Notebooks'
 copyright = '2022, lifespline'
 author = 'lifespline'
 release = '1.0.0-beta'
