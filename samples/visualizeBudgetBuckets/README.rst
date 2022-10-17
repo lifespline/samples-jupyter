@@ -5,7 +5,7 @@ Quickstart
 About
 -----
 
-Pandas quickstart fundamentals
+Visualize budget buckets.
 
 Sample
 ------
